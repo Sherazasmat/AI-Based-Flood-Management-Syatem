@@ -1,92 +1,135 @@
-import React from 'react'
-import { Phone, FileText, ArrowRight } from 'lucide-react'
+import React from 'react';
+import { Phone, BookOpen, Building2, ShieldCheck, Truck, LifeBuoy } from 'lucide-react';
 
 const CriticalInfoSection = () => {
   return (
-    <section className="bg-white py-16 px-6 md:px-20">
+    <div className="w-full bg-white py-16 px-4 md:px-10">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Phone className="text-blue-600" size={20} />
+        
+        {/* Top Small Badge */}
+        <div className="flex justify-center mb-6">
+          <div className="flex items-center gap-2 bg-red-50 px-4 py-1.5 rounded-full border border-red-100">
+            <LifeBuoy size={16} className="text-red-500" />
+            <span className="text-xs font-bold text-red-600">Emergency Resources</span>
           </div>
-          <h2 className="text-3xl font-bold text-blue-600 mb-2">
+        </div>
+
+        {/* Title Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Critical Information & Resources
           </h2>
-          <p className="text-gray-500 text-sm">
-            Essential contacts and resources for flood preparedness and response.
+          <p className="text-slate-500 text-lg">
+            Essential contacts, safety guidelines, and emergency protocols
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Emergency Contacts */}
-          <div className="bg-white border-2 border-red-200 rounded-xl shadow-lg p-6">
-            <Phone className="text-red-600 mb-4" size={32} />
-            <h3 className="text-red-600 font-semibold text-lg mb-4">Emergency Contacts</h3>
-            <ul className="space-y-3 mb-4">
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-red-600 rounded-full"></span>
-                <span className="flex-1">Emergency Services</span>
-                <button className="bg-red-600 text-white px-3 py-1 rounded text-xs font-medium">911</button>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-red-600 rounded-full"></span>
-                <span className="flex-1">Local Police</span>
-                <Phone className="text-red-600" size={16} />
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-red-600 rounded-full"></span>
-                <span className="flex-1">Fire Department</span>
-                <Phone className="text-red-600" size={16} />
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-red-600 rounded-full"></span>
-                <span className="flex-1">Medical Assistance</span>
-                <Phone className="text-red-600" size={16} />
-              </li>
-            </ul>
-            <button className="text-gray-600 text-sm flex items-center gap-1 hover:text-gray-800">
-              View All
-              <ArrowRight size={14} />
-            </button>
+        {/* Two Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Left Column: Emergency Contacts */}
+          <div className="bg-orange-50/50 rounded-[2.5rem] p-8 md:p-10 border border-orange-100/50">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="bg-red-500 p-3 rounded-2xl shadow-lg shadow-red-200 text-white">
+                <Phone size={28} fill="currentColor" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900">Emergency Contacts</h3>
+            </div>
+
+            <div className="space-y-4">
+              {/* Service 1 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50">
+                <div className="flex items-center gap-4">
+                  <div className="bg-red-50 p-3 rounded-2xl text-red-500">
+                    <Building2 size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">Emergency Services</h4>
+                    <p className="text-sm text-slate-400">24/7 Emergency Hotline</p>
+                  </div>
+                </div>
+                <span className="text-3xl font-black text-red-500">911</span>
+              </div>
+
+              {/* Service 2 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50">
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-50 p-3 rounded-2xl text-blue-500">
+                    <ShieldCheck size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">Disaster Management</h4>
+                    <p className="text-sm text-slate-400">Flood Response Team</p>
+                  </div>
+                </div>
+                <span className="text-xl font-black text-blue-600">1-800-FLOOD</span>
+              </div>
+
+              {/* Service 3 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50">
+                <div className="flex items-center gap-4">
+                  <div className="bg-emerald-50 p-3 rounded-2xl text-emerald-500">
+                    <Truck size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">Medical Assistance</h4>
+                    <p className="text-sm text-slate-400">Emergency Medical Services</p>
+                  </div>
+                </div>
+                <span className="text-xl font-black text-emerald-500">1-800-MEDIC</span>
+              </div>
+            </div>
           </div>
 
-          {/* Critical Information */}
-          <div className="bg-white border-2 border-blue-200 rounded-xl shadow-lg p-6">
-            <FileText className="text-blue-600 mb-4" size={32} />
-            <h3 className="text-blue-600 font-semibold text-lg mb-4">Critical Information</h3>
-            <ul className="space-y-3 mb-4">
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span className="flex-1">Flood Preparedness Guide</span>
-                <FileText className="text-blue-600" size={16} />
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span className="flex-1">Evacuation Routes Map</span>
-                <FileText className="text-blue-600" size={16} />
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span className="flex-1">First Aid Tips</span>
-                <FileText className="text-blue-600" size={16} />
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span className="flex-1">Shelter Information</span>
-                <FileText className="text-blue-600" size={16} />
-              </li>
-            </ul>
-            <button className="text-gray-600 text-sm flex items-center gap-1 hover:text-gray-800">
-              View All
-              <ArrowRight size={14} />
-            </button>
+          {/* Right Column: Safety Guidelines */}
+          <div className="bg-cyan-50/40 rounded-[2.5rem] p-8 md:p-10 border border-cyan-100/50">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="bg-blue-600 p-3 rounded-2xl shadow-lg shadow-blue-200 text-white">
+                <BookOpen size={28} />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900">Safety Guidelines</h3>
+            </div>
+
+            <div className="space-y-4">
+              {/* Guideline 1 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">1</div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-lg">Move to Higher Ground</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed mt-1">
+                    Evacuate immediately to elevated areas when flood warning is issued
+                  </p>
+                </div>
+              </div>
+
+              {/* Guideline 2 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">2</div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-lg">Avoid Floodwater</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed mt-1">
+                    Never walk or drive through flood water - 6 inches can knock you down
+                  </p>
+                </div>
+              </div>
+
+              {/* Guideline 3 */}
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">3</div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-lg">Emergency Kit Ready</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed mt-1">
+                    Keep water, food, medications, and important documents in waterproof container
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
-export default CriticalInfoSection
+export default CriticalInfoSection;

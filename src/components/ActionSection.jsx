@@ -1,63 +1,93 @@
-import React from 'react'
-import { CloudRain, AlertTriangle, Shield, ArrowRight } from "lucide-react";
+import React from 'react';
+import { Bell, HeartHandshake, Home, ArrowRight, AlertTriangle, MapPin } from 'lucide-react';
 
 const ActionSection = () => {
   return (
-   <div className="bg-[#0B4ED8] py-16 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center text-white mb-10">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <AlertTriangle className="text-white" size={20} />
-          </div>
-          <h2 className="text-3xl font-bold mb-2">Take Action Now</h2>
-          <p className="text-blue-100 text-sm">
-            Immediate steps to ensure safety and minimize damage during a flood.
+    <div className="w-full min-h-screen bg-blue-600 p-5 md:p-20 flex items-center justify-center">
+      {/* Outer Dotted Container */}
+      <div className="w-full max-w-8xl relative">
+        
+        {/* Heading Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-4xl font-bold text-white mb-4">
+            Take Action Now
+          </h2>
+          <p className="text-blue-100 text-lg">
+            Quick access to essential services and emergency response tools
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Flood Situation Status */}
-          <div className="bg-blue-700 rounded-xl shadow-lg p-6 text-white">
-            <CloudRain className="mb-4" size={32} />
-            <h3 className="font-semibold text-lg mb-3">Flood Situation Status</h3>
-            <p className="text-blue-100 text-sm mb-4">
-              Stay updated with real-time flood conditions and alerts in your area.
+        {/* 3-Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* Card 1: View Active Alerts */}
+          <div className="bg-white rounded-4xl p-10 shadow-xl flex flex-col">
+            <div className="bg-blue-600 w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-200">
+              <Bell className="text-white" size={28} />
+            </div>
+            
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">View Active Alerts</h3>
+            <p className="text-slate-500 text-lg leading-relaxed mb-8 grow">
+              Access real-time flood alerts, warnings, and safety notifications for your area with detailed severity information.
             </p>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-blue-500 transition">
-              View Status
-              <ArrowRight size={14} />
+
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-all group">
+              View All Alerts <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+              <span className="text-slate-400 font-medium text-sm">Active Alerts</span>
+              <span className="text-rose-600 font-bold text-sm">3 Critical</span>
+            </div>
           </div>
 
-          {/* Urgent and Critical Status */}
-          <div className="bg-red-600 rounded-xl shadow-lg p-6 text-white">
-            <AlertTriangle className="mb-4" size={32} />
-            <h3 className="font-semibold text-lg mb-3">Urgent and Critical Status</h3>
-            <p className="text-red-100 text-sm mb-4">
-              Access critical information and emergency contacts for immediate assistance.
+          {/* Card 2: Report as Flood Victim */}
+          <div className="bg-white rounded-4xl p-10 shadow-xl flex flex-col h-full">
+            <div className="bg-rose-500 w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl mb-8 shadow-lg shadow-rose-100">
+              <HeartHandshake className="text-white" size={28} />
+            </div>
+            
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Report as Flood Victim</h3>
+            <p className="text-slate-500 text-lg leading-relaxed mb-8 grow">
+              Submit an emergency report if you are affected by flooding. Our rescue teams will respond immediately to your location.
             </p>
-            <button className="bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-red-800 transition">
-              Get Help Now
-              <ArrowRight size={14} />
+
+            <button className="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-all">
+              Report Emergency <AlertTriangle size={20} />
             </button>
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+              <span className="text-slate-400 font-medium text-sm">Response Time</span>
+              <span className="text-emerald-500 font-bold text-sm">~15 minutes</span>
+            </div>
           </div>
 
-          {/* Safe and Healthy Status */}
-          <div className="bg-green-600 rounded-xl shadow-lg p-6 text-white">
-            <Shield className="mb-4" size={32} />
-            <h3 className="font-semibold text-lg mb-3">Safe and Healthy Status</h3>
-            <p className="text-green-100 text-sm mb-4">
-              Find safe routes, open shelters, and health advisories to protect yourself.
+          {/* Card 3: Find Nearby Shelters */}
+          <div className="bg-white rounded-4xl p-8 shadow-xl flex flex-col h-full">
+            <div className="bg-emerald-500 w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-100">
+              <Home className="text-white" size={28} />
+            </div>
+            
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Find Nearby Shelters</h3>
+            <p className="text-slate-500 text-lg 
+            leading-relaxed mb-8 grow">
+              Locate the nearest emergency shelters with available capacity, facilities, and real-time occupancy information.
             </p>
-            <button className="bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-green-800 transition">
-              Find Safety
-              <ArrowRight size={14} />
+
+            <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-all">
+              Find Shelters <MapPin size={20} />
             </button>
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+              <span className="text-slate-400 font-medium text-sm">Nearby Shelters</span>
+              <span className="text-blue-600 font-bold text-sm">12 Available</span>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ActionSection;
