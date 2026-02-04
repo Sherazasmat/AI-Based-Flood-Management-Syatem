@@ -9,7 +9,7 @@ const ActionSection = () => {
         
         {/* Heading Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Take Action Now
           </h2>
           <p className="text-blue-100 text-lg">
