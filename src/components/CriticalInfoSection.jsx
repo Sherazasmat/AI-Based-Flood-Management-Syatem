@@ -1,10 +1,10 @@
 import React from 'react';
-import { Phone, BookOpen, Building2, ShieldCheck, Truck, LifeBuoy, Hospital, Ambulance } from 'lucide-react';
+import { Phone, BookOpen, ShieldCheck, LifeBuoy, Hospital, Ambulance } from 'lucide-react';
 
 const CriticalInfoSection = () => {
   return (
-    <div className="w-full bg-white py-16 px-4 md:px-10">
-      <div className="max-w-7xl mx-auto">
+    <div className="w-full bg-white min-h-screen p-6 md:p-18 flex items-center justify-center">
+      <div className="w-full relative">
         
         {/* Top Small Badge */}
         <div className="flex justify-center mb-6">
@@ -38,8 +38,8 @@ const CriticalInfoSection = () => {
 
             <div className="space-y-6">
               {/* Service 1 */}
-              <div className="bg-white p-6 rounded-3xl shadow-md flex items-center justify-between border border-slate-50">
-                <div className="flex items-center gap-4">
+              <div className="bg-white p-6 rounded-3xl shadow-md flex items-center justify-between border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
+                <div className="flex items-center gap-4 ">
                   <div className="bg-red-50 p-3 rounded-2xl text-red-500">
                     <Hospital size={24} />
                   </div>
@@ -52,7 +52,7 @@ const CriticalInfoSection = () => {
               </div>
 
               {/* Service 2 */}
-              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50">
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-50 p-3 rounded-2xl text-blue-500">
                     <ShieldCheck size={24} />
@@ -66,7 +66,7 @@ const CriticalInfoSection = () => {
               </div>
 
               {/* Service 3 */}
-              <div className=" bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50">
+              <div className=" bg-white p-6 rounded-3xl shadow-sm flex items-center justify-between border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
                 <div className="flex items-center gap-6">
                   <div className="bg-emerald-50 p-3 rounded-2xl text-emerald-500">
                     <Ambulance size={24} />
@@ -92,7 +92,7 @@ const CriticalInfoSection = () => {
 
             <div className="space-y-4">
               {/* Guideline 1 */}
-              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
                 <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">1</div>
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg">Move to Higher Ground</h4>
@@ -103,7 +103,7 @@ const CriticalInfoSection = () => {
               </div>
 
               {/* Guideline 2 */}
-              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
                 <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">2</div>
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg">Avoid Floodwater</h4>
@@ -114,7 +114,7 @@ const CriticalInfoSection = () => {
               </div>
 
               {/* Guideline 3 */}
-              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50">
+              <div className="bg-white p-6 rounded-3xl shadow-sm flex items-start gap-5 border border-slate-50 cursor-pointer border-none transition-all duration-200 hover:shadow-xl">
                 <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm">3</div>
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg">Emergency Kit Ready</h4>
