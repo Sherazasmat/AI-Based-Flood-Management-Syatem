@@ -1,43 +1,85 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+// FontAwesome Imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  AlertTriangle, ShieldAlert, MapPin, CheckCircle2, Clock
-} from 'lucide-react';
+  faTriangleExclamation,
+  faShieldHalved,
+  faClock,
+  faMapLocationDot
+} from '@fortawesome/free-solid-svg-icons';
 
 const StatusSection = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 } // Har column ke darmiyan 0.2s ka gap
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    // Background match with previous sections
     <section className="w-full bg-[#F8FAFC] mb-15 font-sans flex flex-col items-center">
-
-
+      {/* RESTORED: Original p-16 padding */}
       <div className="w-full p-16 relative">
 
         {/* Top Badge */}
-        <div className="flex justify-center mb-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-6"
+        >
           <div className="flex items-center gap-2 bg-orange-50 px-4 py-1.5 rounded-full border border-orange-100">
-            <ShieldAlert size={20} className="text-orange-500" />
+            <FontAwesomeIcon icon={faShieldHalved} className="text-orange-500" />
             <span className="text-md font-bold text-orange-600 tracking-widest">AI Risk Assessment</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <h1 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Current Flood Risk Status
           </h1>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Machine learning algorithms analyzing multiple data sources in real-time.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+        {/* 3-Column Grid: Staggered Animation Container */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full"
+        >
 
           {/* Column 1: Risk Level Card */}
-          <div className="bg-white border border-amber-200 rounded-[2.5rem] p-10 shadow-md relative transition-all hover:shadow-xl">
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }} // Subtle lift on hover
+            className="bg-white border border-amber-200 rounded-[2.5rem] p-10 shadow-md relative transition-all hover:shadow-xl"
+          >
             <div className="flex justify-between gap-4 items-start mb-8">
               <h3 className="font-bold text-slate-800 items-center text-2xl">Risk Level</h3>
-              <div className="p-2 bg-orange-500/2 justify-center rounded-xl text-orange-600">
-                <AlertTriangle size={25} />
+              <div className="p-2 bg-orange-200/50 justify-center rounded-lg text-orange-600">
+                <FontAwesomeIcon icon={faTriangleExclamation} size="xl" />
               </div>
             </div>
 
@@ -55,19 +97,23 @@ const StatusSection = () => {
                 <span className="text-slate-600">Alert Priority</span>
                 <span className="text-orange-400 font-bold text-lg">High</span>
               </div>
-              <div className="flex justify-between items-center text-md font-semibold  tracking-wider">
+              <div className="flex justify-between items-center text-md font-semibold tracking-wider">
                 <span className="text-slate-600">Last Assessment</span>
                 <span className="text-slate-800 font-bold text-lg">2 min ago</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 2: Affected Areas Card */}
-          <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-md transition-all hover:shadow-xl">
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-md transition-all hover:shadow-xl"
+          >
             <div className="flex justify-between items-start mb-8">
               <h3 className="font-bold text-slate-800 text-2xl">Affected Areas</h3>
-              <div className="p-2 bg-rose-50 rounded-xl text-rose-500">
-                <MapPin size={25} />
+              <div className="p-2 bg-rose-100 rounded-lg text-rose-500">
+                <FontAwesomeIcon icon={faMapLocationDot} size="xl" />
               </div>
             </div>
 
@@ -101,20 +147,24 @@ const StatusSection = () => {
                 <span className="text-emerald-600">Safe</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 3: Prediction Timeline Card */}
-          <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-md transition-all hover:shadow-xl">
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-md transition-all hover:shadow-xl"
+          >
             <div className="flex justify-between items-start mb-8">
               <h3 className="font-bold text-slate-800 text-2xl">Prediction Timeline</h3>
-              <div className="p-2 bg-blue-50 rounded-xl text-blue-800">
-                <Clock size={25} />
+              <div className="p-2 bg-blue-100 rounded-lg text-blue-800">
+                <FontAwesomeIcon icon={faClock} size="xl" />
               </div>
             </div>
 
             <div className="relative pl-6 space-y-8">
               <div className="absolute left-1.75 top-2 bottom-2 w-px bg-slate-100"></div>
-
+              {/* Timeline Steps */}
               <div className="relative">
                 <div className="absolute -left-5.75 top-2 w-4 h-4 rounded-full bg-white border-4 border-blue-500 z-10"></div>
                 <div>
@@ -122,7 +172,6 @@ const StatusSection = () => {
                   <p className="text-sm text-slate-600 mt-0.5">Water level rising steadily</p>
                 </div>
               </div>
-
               <div className="relative">
                 <div className="absolute -left-5.75 top-2 w-4 h-4 rounded-full bg-white border-4 border-rose-500 z-10"></div>
                 <div>
@@ -130,7 +179,6 @@ const StatusSection = () => {
                   <p className="text-sm text-slate-600 mt-0.5">Peak water level expected</p>
                 </div>
               </div>
-
               <div className="relative">
                 <div className="absolute -left-5.75 top-2 w-4 h-4 rounded-full bg-white border-4 border-amber-500 z-10"></div>
                 <div>
@@ -138,7 +186,6 @@ const StatusSection = () => {
                   <p className="text-sm text-slate-600 mt-0.5">Gradual water recession</p>
                 </div>
               </div>
-
               <div className="relative">
                 <div className="absolute -left-5.75 top-2 w-4 h-4 rounded-full bg-white border-4 border-emerald-500 z-10"></div>
                 <div>
@@ -147,9 +194,9 @@ const StatusSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );
